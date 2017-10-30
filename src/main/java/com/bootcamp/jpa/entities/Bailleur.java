@@ -6,18 +6,13 @@
 package com.bootcamp.jpa.entities;
 
 import com.bootcamp.jpa.enums.TypeDeBailleur;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -29,12 +24,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="tp_bailleur")
 @DiscriminatorValue("BAILLEUR")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bailleur extends Personne {
-   
-    
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	@Column(length=45)
     @NotNull(message="veillez choisir le type de Bailleur ...!")

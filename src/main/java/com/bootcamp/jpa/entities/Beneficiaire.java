@@ -7,14 +7,12 @@ package com.bootcamp.jpa.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
@@ -23,8 +21,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tp_beneficiaire")
 @DiscriminatorValue("BENEFICIAIRE")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Beneficiaire extends Personne {
 
+	private static final long serialVersionUID = 1L;
     public Beneficiaire() {
 
     }
@@ -46,14 +46,7 @@ public class Beneficiaire extends Personne {
         this.programmes = programmes;
     }
 
-//    @ManyToMany(cascade = {
-//        CascadeType.PERSIST,
-//        CascadeType.MERGE
-//    })
-//    @JoinTable(name = "beneficiaire_has_projet", joinColumns = @JoinColumn(name = "beneficiaire_id"),
-//            inverseJoinColumns = @JoinColumn(name = "projet_id"))
-//    private List<Projet> projets = new ArrayList<Projet>();
-@OneToMany
+    @OneToMany
     private List<Beneficiaire_has_Projet> beneficiaireHasProjet = new ArrayList<Beneficiaire_has_Projet>();
 
 }

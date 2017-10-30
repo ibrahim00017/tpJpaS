@@ -25,4 +25,23 @@ public class BailleurMetierImpl implements BailleurMetier{
 		return bailleurRepository.findAll();
 	}
 
+	@Override
+	public Bailleur getBailleur(Long id) {
+		// TODO Auto-generated method stub
+		return bailleurRepository.getOne(id);
+	}
+
+	@Override
+	public void deleteBailleur(Long id) {
+		// TODO Auto-generated method stub
+		
+	 bailleurRepository.delete(id);
+	}
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		bailleurRepository.deleteAll();
+	}
+
 }

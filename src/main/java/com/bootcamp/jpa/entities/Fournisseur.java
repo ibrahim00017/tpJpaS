@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,8 +20,9 @@ import javax.persistence.Table;
 @Table(name="tp_fournisseur")
 @DiscriminatorValue("FOURNISSEUR")
 public class Fournisseur extends Personne {
+	private static final long serialVersionUID = 1L;
     public Fournisseur(){
-        
+      
     }
     
     public Fournisseur(String nom){
