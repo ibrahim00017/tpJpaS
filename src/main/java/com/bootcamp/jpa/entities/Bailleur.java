@@ -29,15 +29,16 @@ public class Bailleur extends Personne {
 
 	private static final long serialVersionUID = 1L;
 	@Column(length=45)
-    @NotNull(message="veillez choisir le type de Bailleur ...!")
+    
     private TypeDeBailleur typeDeBailleur;
 
     public TypeDeBailleur getTypeDeBailleur() {
         return typeDeBailleur;
     }
-
-    public void setTypeDeBailleur(TypeDeBailleur typeDeBailleur) {
+    @NotNull(message="veillez choisir le type de Bailleur ...!")
+    public boolean setTypeDeBailleur(TypeDeBailleur typeDeBailleur) {
         this.typeDeBailleur = typeDeBailleur;
+        return true;
     }
     
    
