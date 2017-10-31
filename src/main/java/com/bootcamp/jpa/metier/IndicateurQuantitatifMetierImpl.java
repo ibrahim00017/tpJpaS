@@ -2,12 +2,14 @@ package com.bootcamp.jpa.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.bootcamp.jpa.entities.IndicateurQuantitatif;
 import com.bootcamp.jpa.repository.IndicateurQuantitatifRepository;
 
 @Service
 public class IndicateurQuantitatifMetierImpl implements IndicateurQuantitatifMetier {
+	@Autowired
 	IndicateurQuantitatifRepository indicateurQuantitatifRepo;
 	@Override
 	public IndicateurQuantitatif add(IndicateurQuantitatif indicateurQuantitatif) {

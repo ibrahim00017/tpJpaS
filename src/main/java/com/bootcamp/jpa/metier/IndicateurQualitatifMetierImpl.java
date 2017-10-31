@@ -2,13 +2,14 @@ package com.bootcamp.jpa.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.jpa.entities.IndicateurQualitatif;
 import com.bootcamp.jpa.repository.IndicateurQualitatifRepository;
 @Service
 public class IndicateurQualitatifMetierImpl implements IndicateurQualitatifMetier{
-	
+	@Autowired
 	IndicateurQualitatifRepository indicateurQualitatifRepo;
 	@Override
 	public IndicateurQualitatif add(IndicateurQualitatif indicateurQualitatif) {

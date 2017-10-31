@@ -2,6 +2,7 @@ package com.bootcamp.jpa.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.jpa.entities.Fournisseur;
@@ -9,7 +10,7 @@ import com.bootcamp.jpa.repository.FournisseurRepository;
 
 @Service
 public class FournisseurMetierImpl implements FournisseurMetier{
-	
+	@Autowired
 	FournisseurRepository fournisseurRepo;
 	@Override
 	public Fournisseur add(Fournisseur fournisseur) {

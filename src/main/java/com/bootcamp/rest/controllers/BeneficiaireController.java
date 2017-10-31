@@ -15,19 +15,24 @@ import com.bootcamp.jpa.metier.BeneficiaireMetier;
 @RestController
 @RequestMapping(value="/beneficiaires")
 public class BeneficiaireController {
-	@Autowired
-	private BeneficiaireMetier benMetier;
 	
+	private BeneficiaireMetier benMetier;
+	@Autowired
+	public void setBeneficiaireMetier(BeneficiaireMetier beneficiaireMetier) {
+		this.benMetier = beneficiaireMetier;
+	}
+	
+
+	@RequestMapping(method=RequestMethod.GET)
+	public List<Beneficiaire> getAll(){
+		return benMetier.getBeneficiaires();
+	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public Beneficiaire add(@RequestBody Beneficiaire beneficiaire) {
 		return benMetier.addBeneficiaire(beneficiaire);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Beneficiaire> getAll(){
-		return benMetier.getBeneficiaires();
-	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public Beneficiaire get(@PathVariable Long id) {

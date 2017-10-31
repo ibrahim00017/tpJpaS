@@ -2,6 +2,7 @@ package com.bootcamp.jpa.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.jpa.entities.IndicateurPerformance;
@@ -9,6 +10,7 @@ import com.bootcamp.jpa.repository.IndicateurPerformanceRepository;
 
 @Service
 public class IndicateurPerformanceMetierImpl implements IndicateurPerformanceMetier{
+	@Autowired
 	IndicateurPerformanceRepository indicateurPerformanceRepo;
 	@Override
 	public IndicateurPerformance add(IndicateurPerformance indicateurPerformance) {

@@ -2,6 +2,7 @@ package com.bootcamp.jpa.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.jpa.entities.Livrable;
@@ -9,6 +10,7 @@ import com.bootcamp.jpa.repository.LivrableRepository;
 
 @Service
 public class LivrableMetierImpl implements LivrableMetier{
+	@Autowired
 	LivrableRepository livrableRepo;
 	@Override
 	public Livrable add(Livrable livrable) {

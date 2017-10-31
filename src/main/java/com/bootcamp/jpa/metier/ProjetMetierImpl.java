@@ -2,6 +2,7 @@ package com.bootcamp.jpa.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.jpa.entities.Projet;
@@ -9,6 +10,7 @@ import com.bootcamp.jpa.repository.ProjetRepository;
 
 @Service
 public class ProjetMetierImpl implements ProjetMetier{
+	@Autowired
 	ProjetRepository projetRepo;
 	@Override
 	public Projet add(Projet projet) {
