@@ -6,42 +6,58 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bootcamp.jpa.entities.Bailleur;
-import com.bootcamp.jpa.repository.BailleurRepository;
+import com.bootcamp.jpa.repository.BailleurRepo;
 
 @Service
 public class BailleurMetierImpl implements BailleurMetier{
 
 	@Autowired
-	private BailleurRepository bailleurRepository;
+	private BailleurRepo bailleurRepo;
+	
 	@Override
-	public Bailleur addBailleur(Bailleur bailleur) {
+	public Bailleur add(Bailleur bailleur) {
 		// TODO Auto-generated method stub
-		return bailleurRepository.save(bailleur);
+	
+		return bailleurRepo.add(bailleur);
 	}
 
 	@Override
 	public List<Bailleur> getBailleurs() {
 		// TODO Auto-generated method stub
-		return bailleurRepository.findAll();
+		return bailleurRepo.getAll();
 	}
 
 	@Override
 	public Bailleur getBailleur(Long id) {
 		// TODO Auto-generated method stub
-		return bailleurRepository.getOne(id);
+		return bailleurRepo.getById(id);
 	}
 
 	@Override
 	public void deleteBailleur(Long id) {
 		// TODO Auto-generated method stub
 		
-	 bailleurRepository.delete(id);
+	 bailleurRepo.delete(id);
 	}
 
 	@Override
-	public void deleteAll() {
+	public Bailleur update(Bailleur bailleur) {
 		// TODO Auto-generated method stub
-		bailleurRepository.deleteAll();
+		return bailleurRepo.update(bailleur);
 	}
+
+	@Override
+	public Bailleur findByName(String name) {
+		// TODO Auto-generated method stub
+		return bailleurRepo.findByName(name);
+	}
+
+	@Override
+	public List<Bailleur> findByPays(String pays) {
+		// TODO Auto-generated method stub
+		return bailleurRepo.findByPays(pays);
+	}
+
+
 
 }

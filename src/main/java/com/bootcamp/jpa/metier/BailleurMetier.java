@@ -3,13 +3,17 @@ package com.bootcamp.jpa.metier;
 import java.util.List;
 
 import com.bootcamp.jpa.entities.Bailleur;
+import com.bootcamp.jpa.enums.TypeDeBailleur;
 
 public interface BailleurMetier {
 	
-	public Bailleur addBailleur(Bailleur bailleur);
+	public Bailleur add(Bailleur bailleur);
 	public List<Bailleur> getBailleurs();
 	public Bailleur getBailleur(Long id);
 	public void deleteBailleur(Long id);
-	public void deleteAll();
+	public Bailleur update(Bailleur bailleur);
+	public Bailleur findByName(String name);
+	public List<Bailleur> findByPays(String pays);
+	//public void deleteAll();
 
 }

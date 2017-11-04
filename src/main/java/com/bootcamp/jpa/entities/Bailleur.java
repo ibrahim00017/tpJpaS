@@ -5,17 +5,10 @@
  */
 package com.bootcamp.jpa.entities;
 
-import com.bootcamp.jpa.enums.TypeDeBailleur;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -24,61 +17,37 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="tp_bailleur")
 @DiscriminatorValue("BAILLEUR")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bailleur extends Personne {
 
 	private static final long serialVersionUID = 1L;
 	@Column(length=45)
-    
-    private TypeDeBailleur typeDeBailleur;
+	private String pays;
+	
+	public Bailleur() {
+		super();
+	}
+	public Bailleur(String nom) {
+		super(nom);
+	}
+	public Bailleur(String nom,String pays) {
+		super(nom);
+		this.pays=pays;
+	}
+	public String getPays() {
+		return pays;
+	}
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
 
-    public TypeDeBailleur getTypeDeBailleur() {
-        return typeDeBailleur;
-    }
-    @NotNull(message="veillez choisir le type de Bailleur ...!")
-    public boolean setTypeDeBailleur(TypeDeBailleur typeDeBailleur) {
-        this.typeDeBailleur = typeDeBailleur;
-        return true;
-    }
-    
-   
-    
-//
-  @OneToMany
+
+
+/*  @OneToMany
   private List<Bailleur_has_Programme> bailleur_has_programme = new ArrayList<Bailleur_has_Programme>();
   @OneToMany
- private List<Bailleur_has_Projet> bailleurHasProjet = new ArrayList<Bailleur_has_Projet>();
+ private List<Bailleur_has_Projet> bailleurHasProjet = new ArrayList<Bailleur_has_Projet>();*/
   
-//default constructor
-    public Bailleur() {
-    }
 
-    public List<Bailleur_has_Projet> getBailleurHasProjet() {
-        return bailleurHasProjet;
-    }
-
-    public void setBailleurHasProjet(List<Bailleur_has_Projet> bailleurHasProjet) {
-        this.bailleurHasProjet = bailleurHasProjet;
-    }
-
-
-    public Bailleur(String nom) {
-        super(nom);
-    }
-    
-    public Bailleur(String nom,TypeDeBailleur type){
-        super(nom);
-        typeDeBailleur = type;
-        
-    }
-
-    public List<Bailleur_has_Programme> getBailleur_has_programme() {
-        return bailleur_has_programme;
-    }
-
-    public void setBailleur_has_programme(List<Bailleur_has_Programme> bailleur_has_programme) {
-        this.bailleur_has_programme = bailleur_has_programme;
-    }
 
 
 

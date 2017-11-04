@@ -28,7 +28,7 @@ public class BeneficiaireController {
 		return benMetier.getBeneficiaires();
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public Beneficiaire add(@RequestBody Beneficiaire beneficiaire) {
 		return benMetier.addBeneficiaire(beneficiaire);
 	}
