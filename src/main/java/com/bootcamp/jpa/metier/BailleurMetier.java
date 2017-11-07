@@ -3,7 +3,6 @@ package com.bootcamp.jpa.metier;
 import java.util.List;
 
 import com.bootcamp.jpa.entities.Bailleur;
-import com.bootcamp.jpa.enums.TypeDeBailleur;
 
 public interface BailleurMetier {
 	
